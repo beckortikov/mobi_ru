@@ -265,7 +265,9 @@ if authentication_status:
     with top_right:
         def authenticate_gspread():
             # Load Google Sheets API credentials
-            sa = gspread.service_account(filename='credits_mobi.json')
+            from  read_json import  response_json
+            response_ = response_json()
+            sa = gspread.service_account_from_dict(response_)
             return sa
 
         # Function to duplicate data to Google Sheets
