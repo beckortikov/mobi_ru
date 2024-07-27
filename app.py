@@ -173,7 +173,7 @@ if authentication_status:
             region = region_options.get(manager, default_region)
             st.selectbox(r'$\textsf{\normalsize Филиал}$', [region])
             name = st.text_input(r'$\textsf{\normalsize ФИО}$', '')
-            address = st.selectbox(r'$\textsf{\normalsize Семейный статус}$', ["Андижанская область", "Бухарская область", "Джизакская область",
+            address = st.selectbox(r'$\textsf{\normalsize Адрес}$', ["Андижанская область", "Бухарская область", "Джизакская область",
                                                                                 "Навоийская область", "Наманганская область", "Самаркандская область",
                                                                                 "Сурхандарьинская область", "Сырдарьинская область", "Ташкентская область",
                                                                                 "Ферганская область", "Кашкадарьинская область", "Хорезмская область", "Каракалпакстан"])
