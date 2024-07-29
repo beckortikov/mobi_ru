@@ -1,6 +1,6 @@
 import pickle
 from pathlib import Path
-
+import logging
 import streamlit_authenticator as stauth  # pip install streamlit-authenticator
 
 import streamlit as st
@@ -14,7 +14,10 @@ from datetime import datetime
 from fpdf import FPDF
 from PIL import Image
 
+from kurs import return_currency
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 img = Image.open("mobi_icon.ico")
 st.set_page_config(
         page_title="MobiCenter",
@@ -234,13 +237,19 @@ if authentication_status:
                     "Менее 1 года": '1 йилдан кам',
                     "Без опыта": 'Тажрибаси йук'
                 }
+                price_currency = float(return_currency())
+                logger.info("Current currency price: %s", price_currency)
+                logger.info("Amount credit rub: %s", amount)
+                logger.info("Amount credit som: %s", amount*price_currency)
+                logger.info("Income in rub: %s", income)
+                logger.info("Income in som: %s", income*price_currency)
                 input_data = pd.DataFrame({
                     'Age': [age],
                     'Gender': [1 if gender == 'Мужчина' else 0],
-                    'Amount': [amount],
+                    'Amount': [amount*price_currency],
                     'Duration': [duration],
                     'MaritalStatus': [name_dict[marital_status]],
-                    'Income': [income],
+                    'Income': [income*price_currency],
                     'Dependants': [dependants],
                     'OccupationBranch': [name_dict[occupation_branch]],
                     'Occupation': [name_dict[occupation]],
@@ -249,6 +258,8 @@ if authentication_status:
 
                 prediction = model.predict_proba(input_data)[:, 0]
                 input_data["MaritalStatus"] = marital_status
+                input_data["Amount"] = amount
+                input_data["Income"] = income
                 input_data["OccupationBranch"] = occupation_branch
                 input_data["Occupation"] = occupation
                 input_data['Manager'] = manager
