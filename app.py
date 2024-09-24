@@ -57,7 +57,7 @@ if authentication_status:
         """
         <style>
             section[data-testid="stSidebar"] {
-                width: 40px important;
+                width: 80px important;
                 background-color: white;
             }
             .block-container {
@@ -349,7 +349,7 @@ if authentication_status:
         """
         <style>
             section[data-testid="stSidebar"] {
-                width: 40px important;
+                width: 80px important;
                 background-color: white;
             }
             .block-container {
