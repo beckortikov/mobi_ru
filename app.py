@@ -27,11 +27,13 @@ st.set_page_config(
 
 names = [
     "Абдурахмонов Джурабек",
-    "Алиева Гулзода",
+    "Абдуалимов Азизджон",
+    "Ортиков Бобур",
 ]
 usernames = [
     "jurabek",
-    "gulzoda",
+    "aziz",
+    "bobur",
 ]
 
 # load hashed passwords
@@ -166,12 +168,14 @@ if authentication_status:
             with col1:
                 managers = {
                     "jurabek": ["Абдурахмонов Джурабек"],
-                    "gulzoda": ["Алиева Гулзода"],
+                    "aziz": ["Абдуалимов Азизджон"],
+                    "bobur": ["Ортиков Бобур"],
                 }
                 manager = st.selectbox(r'$\textsf{\normalsize Менеджер}$', managers.get(username, "Абдурахмонов Джурабек"))
                 region_options = {
                             "Абдурахмонов Джурабек": "Питер",
-                            "Алиева Гулзода": "Питер",
+                            "Абдуалимов Азизджон": "Питер",
+                            "Ортиков Бобур": "Питер",
                         }
                 default_region = "Питер"  # Default district if no match found
 
@@ -464,7 +468,8 @@ if authentication_status:
                     manager = st.selectbox(r'$\textsf{\normalsize Менеджер}$', [name_])
                     region_options = {
                             "Абдурахмонов Джурабек": "Питер",
-                            "Алиева Гулзода": "Питер",
+                            "Абдуалимов Азизджон": "Питер",
+                            "Ортиков Бобур": "Питер",
                             }
                     default_region = "Питер"  # Default district if no match found
 
