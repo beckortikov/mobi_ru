@@ -570,7 +570,7 @@ if authentication_status:
 
                         input_data = pd.DataFrame({
                             'age': [age],
-                            'amount': [amount],
+                            'amount': [amount/10],
                             'credit_history_count': [0],
                             'district': [mapping_dis[district]],
                             'duration': [duration],
