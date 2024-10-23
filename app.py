@@ -29,11 +29,15 @@ names = [
     "Абдурахмонов Джурабек",
     "Абдуалимов Азизджон",
     "Ортиков Бобур",
+    "Турсунбаева Мээрим",
+    "Хомидов Азнаур"
 ]
 usernames = [
     "jurabek",
     "aziz",
     "bobur",
+    "meriem",
+    "azanur"
 ]
 
 # load hashed passwords
@@ -170,12 +174,16 @@ if authentication_status:
                     "jurabek": ["Абдурахмонов Джурабек"],
                     "aziz": ["Абдуалимов Азизджон"],
                     "bobur": ["Ортиков Бобур"],
+                    "meriem": ["Турсунбаева Мээрим"],
+                    "azanur": ["Хомидов Азнаур"]
                 }
                 manager = st.selectbox(r'$\textsf{\normalsize Менеджер}$', managers.get(username, "Абдурахмонов Джурабек"))
                 region_options = {
                             "Абдурахмонов Джурабек": "Питер",
                             "Абдуалимов Азизджон": "Питер",
                             "Ортиков Бобур": "Питер",
+                            "Турсунбаева Мээрим": "Питер",
+                            "Хомидов Азнаур": "Питер",
                         }
                 default_region = "Питер"  # Default district if no match found
 
