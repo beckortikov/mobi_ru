@@ -594,7 +594,7 @@ if authentication_status:
                         input_data['name'] = name
                         input_data['region'] = region
                         input_data['phone'] = phone
-                        input_data['Result'] = 'Одобрено' if prediction > 1 - 0.15 else 'Отказано'
+                        input_data['Result'] = 'Одобрено' if prediction > 1 - 0.1 else 'Отказано'
                         input_data['gender'] = gender
                         input_data['marital_status'] = marital_status
                         input_data['Income'] = 0
@@ -651,7 +651,7 @@ if authentication_status:
 
             if prediction is not None:
                 st.write(f'Вероятность возврата: {round(prediction[0]*100, 2)}%')
-                if prediction > 1 - 0.15:
+                if prediction > 1 - 0.1:
                     if_success="Одобрено!"
                     htmlstr1=f"""<p style='background-color:green;
                                                             color:white;
